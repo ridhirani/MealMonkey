@@ -1,0 +1,33 @@
+﻿@model MealMonkey.Models.MM_Products
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+
+<div>
+    
+    <hr />
+
+    <div style="display: flex; flex-direction: row; align-self:center">
+        <div>
+            <img src="@Html.DisplayFor(model => model.ImageUrl)" style="max-block-size:240px">
+        </div>
+        <div style="display: flex; flex-direction:column; align-self:center">
+            <h3>
+                @Html.DisplayFor(model => model.Description)
+            </h3>
+
+            <h4>
+                ₹ @Html.DisplayFor(model => model.Price)
+            </h4>
+
+
+            @Html.ActionLink("Add to Cart", "Cart", "Products", new { id = Model.ProductId }, new { @class = "btn btn-primary" })
+
+        </div>
+        @Html.ActionLink("Back to Menu", "Index")
+
+    </div>
+</div>
